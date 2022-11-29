@@ -33,9 +33,9 @@ void singleFastLED::SingleControl::setColor2(uint8_t green, uint8_t red, uint8_t
 void singleFastLED::SingleControl::blink_loop(){
 
   if(_blinkIsRun && !_stopBlink){
-      if (millis() - _lastBlinkTime < TIME_DIFF_MS){return;}
+      if (millis() - _lastBlinkTime < DISCRETE_TIME_MS){return;}
       _lastBlinkTime = millis();
-      _blinkCounter = _blinkCounter + TIME_DIFF_MS;
+      _blinkCounter = _blinkCounter + DISCRETE_TIME_MS;
   
     switch (_blinkSwitch){
 
@@ -118,9 +118,9 @@ void singleFastLED::SingleControl::blink_loop(){
 void singleFastLED::SingleControl::breath_loop(){
 
   if(_breathIsRun && !_stopBreath){
-      if (millis() - _lastBreathTime < TIME_DIFF_MS) {return;}
+      if (millis() - _lastBreathTime < DISCRETE_TIME_MS) {return;}
       _lastBreathTime = millis();
-       _breathCounter= _breathCounter+TIME_DIFF_MS;
+       _breathCounter= _breathCounter+DISCRETE_TIME_MS;
   
     switch (_breathSwitch) {
              
@@ -282,10 +282,10 @@ void singleFastLED::SingleControl::blink(
         void (*runStartPauseCallbackBlink)(),
         void (*endPauseCallback)())
 {
-    _timeBlinkActionColor1 = timeColor1 ? max((int)TIME_DIFF_MS, (int)timeColor1) : 0;
-    _timeBlinkActionColor2 =  timeColor2 ? max((int)TIME_DIFF_MS, (int)timeColor2) : 0;
+    _timeBlinkActionColor1 = timeColor1 ? max((int)DISCRETE_TIME_MS, (int)timeColor1) : 0;
+    _timeBlinkActionColor2 =  timeColor2 ? max((int)DISCRETE_TIME_MS, (int)timeColor2) : 0;
     _blinkRepeatNum = numOfRepeat;
-    _pauseBlink = pauseTime ? max((int)TIME_DIFF_MS, (int)pauseTime) : 0;
+    _pauseBlink = pauseTime ? max((int)DISCRETE_TIME_MS, (int)pauseTime) : 0;
     _blinkCycleNum = numberOfCycles;
     _runCallbackBlink = finishCallback;
     _startBlinkPauseCallback = runStartPauseCallbackBlink;
@@ -306,10 +306,10 @@ void singleFastLED::SingleControl::blink(
   void (*finishCallback)(),
   void (*runStartPauseCallbackBlink)())
 {     
-    _timeBlinkActionColor1 = timeColor1 ? max((int)TIME_DIFF_MS, (int)timeColor1) : 0;
-    _timeBlinkActionColor2 =  timeColor2 ? max((int)TIME_DIFF_MS, (int)timeColor2) : 0;
+    _timeBlinkActionColor1 = timeColor1 ? max((int)DISCRETE_TIME_MS, (int)timeColor1) : 0;
+    _timeBlinkActionColor2 =  timeColor2 ? max((int)DISCRETE_TIME_MS, (int)timeColor2) : 0;
     _blinkRepeatNum = numOfRepeat;
-    _pauseBlink = pauseTime ? max((int)TIME_DIFF_MS, (int)pauseTime) : 0;
+    _pauseBlink = pauseTime ? max((int)DISCRETE_TIME_MS, (int)pauseTime) : 0;
     _blinkCycleNum = numberOfCycles;
     _runCallbackBlink = finishCallback;
     _startBlinkPauseCallback = runStartPauseCallbackBlink;
@@ -330,10 +330,10 @@ void singleFastLED::SingleControl::blink(
   uint16_t const numberOfCycles,
   void (*finishCallback)())
 {
-    _timeBlinkActionColor1 = timeColor1 ? max((int)TIME_DIFF_MS, (int)timeColor1) : 0;
-    _timeBlinkActionColor2 =  timeColor2 ? max((int)TIME_DIFF_MS, (int)timeColor2) : 0;
+    _timeBlinkActionColor1 = timeColor1 ? max((int)DISCRETE_TIME_MS, (int)timeColor1) : 0;
+    _timeBlinkActionColor2 =  timeColor2 ? max((int)DISCRETE_TIME_MS, (int)timeColor2) : 0;
     _blinkRepeatNum = numOfRepeat;
-    _pauseBlink = pauseTime ? max((int)TIME_DIFF_MS, (int)pauseTime) : 0;
+    _pauseBlink = pauseTime ? max((int)DISCRETE_TIME_MS, (int)pauseTime) : 0;
     _blinkCycleNum = numberOfCycles;
     _runCallbackBlink = finishCallback;
     _startBlinkPauseCallback = NULL;
@@ -351,10 +351,10 @@ void singleFastLED::SingleControl::blink(
   uint16_t const pauseTime,
   uint16_t const numberOfCycles)
 {
-    _timeBlinkActionColor1 = timeColor1 ? max((int)TIME_DIFF_MS, (int)timeColor1) : 0;
-    _timeBlinkActionColor2 =  timeColor2 ? max((int)TIME_DIFF_MS, (int)timeColor2) : 0;
+    _timeBlinkActionColor1 = timeColor1 ? max((int)DISCRETE_TIME_MS, (int)timeColor1) : 0;
+    _timeBlinkActionColor2 =  timeColor2 ? max((int)DISCRETE_TIME_MS, (int)timeColor2) : 0;
     _blinkRepeatNum = numOfRepeat;
-    _pauseBlink = pauseTime ? max((int)TIME_DIFF_MS, (int)pauseTime) : 0;
+    _pauseBlink = pauseTime ? max((int)DISCRETE_TIME_MS, (int)pauseTime) : 0;
     _blinkCycleNum = numberOfCycles;
     _runCallbackBlink = NULL;
     _startBlinkPauseCallback = NULL;
@@ -374,8 +374,8 @@ void singleFastLED::SingleControl::breath(
   void (*runStartPauseCallbackBreath)(),
   void (*runEndPauseCallbackBreath)())
 {
-    _timeBreathAction = breathTime ? max((int)TIME_DIFF_MS, (int)breathTime) : 0;
-    _pauseBreath = pauseTime ? max((int)TIME_DIFF_MS*4, (int)pauseTime) : 0;
+    _timeBreathAction = breathTime ? max((int)DISCRETE_TIME_MS, (int)breathTime) : 0;
+    _pauseBreath = pauseTime ? max((int)DISCRETE_TIME_MS*4, (int)pauseTime) : 0;
     _breathCycleNum = numberOfCycles;
     _runCallbackBreath = runCallbackBreath;
     _startBreathPauseCallback = runStartPauseCallbackBreath;
@@ -395,8 +395,8 @@ void singleFastLED::SingleControl::breath(
   void (*runCallbackBreath)(),
   void (*runStartPauseCallbackBreath)())
 {
-    _timeBreathAction = breathTime ? max((int)TIME_DIFF_MS, (int)breathTime) : 0;
-    _pauseBreath = pauseTime ? max((int)TIME_DIFF_MS*4, (int)pauseTime) : 0;
+    _timeBreathAction = breathTime ? max((int)DISCRETE_TIME_MS, (int)breathTime) : 0;
+    _pauseBreath = pauseTime ? max((int)DISCRETE_TIME_MS*4, (int)pauseTime) : 0;
     _breathCycleNum = numberOfCycles;
     _runCallbackBreath = runCallbackBreath;
     _startBreathPauseCallback = runStartPauseCallbackBreath;
@@ -414,8 +414,8 @@ void singleFastLED::SingleControl::breath(
   uint16_t const numberOfCycles,
   void (*runCallbackBreath)())
 {
-    _timeBreathAction = breathTime ? max((int)TIME_DIFF_MS, (int)breathTime) : 0;
-    _pauseBreath = pauseTime ? max((int)TIME_DIFF_MS*4, (int)pauseTime) : 0;
+    _timeBreathAction = breathTime ? max((int)DISCRETE_TIME_MS, (int)breathTime) : 0;
+    _pauseBreath = pauseTime ? max((int)DISCRETE_TIME_MS*4, (int)pauseTime) : 0;
     _breathCycleNum = numberOfCycles;
     _runCallbackBreath = runCallbackBreath;
     _startBreathPauseCallback = NULL;
@@ -432,8 +432,8 @@ void singleFastLED::SingleControl::breath(
   uint16_t const pauseTime,
   uint16_t const numberOfCycles)
 {
-    _timeBreathAction = breathTime ? max((int)TIME_DIFF_MS, (int)breathTime) : 0;
-    _pauseBreath = pauseTime ? max((int)TIME_DIFF_MS*4, (int)pauseTime) : 0;
+    _timeBreathAction = breathTime ? max((int)DISCRETE_TIME_MS, (int)breathTime) : 0;
+    _pauseBreath = pauseTime ? max((int)DISCRETE_TIME_MS*4, (int)pauseTime) : 0;
     _breathCycleNum = numberOfCycles;
     _runCallbackBreath = NULL;
     _startBreathPauseCallback = NULL;
