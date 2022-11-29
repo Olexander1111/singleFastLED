@@ -55,10 +55,8 @@ Led[0]->update();
 Led[5]->update();
 Fled->show();
 }  
-  
 ```
 ## Finally use the following functions:
-
 ```C++
 on(uint8_t green, uint8_t red, uint8_t blue);
   Example:  Led[0]->on(10,2,45);
