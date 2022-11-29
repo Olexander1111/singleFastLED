@@ -74,15 +74,15 @@ setColor2(uint8_t green, uint8_t red, uint8_t blue);
   
 blink(uint16_t timeColor1, uint16_t timeColor2, byte numOfRepeat, uint16_t pauseTime, uint16_t numberOfCycles);  
   Example:  
-        Led[0]->setColor1(0,0,50);      //Blue
-        Led[0]->setColor2(0,50,0);      //Red
+        Led[0]->setColor1(0,0,50);        //Blue
+        Led[0]->setColor2(0,50,0);        //Red
         Led[0]->blink(100,150,3,2000,10); // Blue fires for 100ms, Red fires for 150ms, repeats 3 times, waits 2000ms and repeats all 10 times
 
 breath(uint16_t actionTime, uint16_t pauseTime, uint16_t numberOfCycles);
   Example:  
         Led[0]->setColor1(0,0,50);      //Blue
         Led[0]->setColor2(0,50,0);      //Red
-        Led[0]->breath(1500,1000,10); // Blue "breath in" for 1500/4 ms, Red "breath out" for 1500/4 ms, Red "breath in" for 1500/4 ms, Blue "breath out" for 1500/4 ms, waits 1000ms and repeats all 10 times
+        Led[0]->breath(1500,1000,10);   //Blue "breath in" for 1500/4 ms, Red "breath out" for 1500/4 ms, Red "breath in" for 1500/4 ms, Blue "breath out" for 1500/4 ms, waits 1000ms and repeats all 10 times
 
 
 ```
