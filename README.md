@@ -82,11 +82,8 @@ breath(uint16_t actionTime, uint16_t pauseTime, uint16_t numberOfCycles);
         Led[0]->setColor2(0,50,0);      //Red
         Led[0]->breath(1500,1000,10);   //Blue "breath in" for 1500/4 ms, Red "breath out" for 1500/4 ms, Red "breath in" for 1500/4 ms, Blue "breath out" for 1500/4 ms, waits 1000ms and repeats all 10 times
 
-blink_stop();
+stop();
     Example:  
-        Led[0]->blink_stop();       // Stop blinking     
-
-breath_stop();
-    Example:  
-        Led[0]->breath_stop();      // Stop breath action     
+        Led[0]->stop();       // Stop blinking or breath actions      
+     
 ```
