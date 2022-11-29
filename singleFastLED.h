@@ -6,9 +6,9 @@
 //#define FASTLED_INTERRUPT_RETRY_COUNT 1
 #include <FastLED.h>
 
-#define TIME_DIFF_MS 	15
-#define NUMBER_OF_LEDS 	8
-#define FastLED_PIN 	16
+#define TIME_DIFF_MS 15
+#define NUMBER_OF_LEDS 8
+#define FastLED_PIN D0
 
 
 class singleFastLED {
@@ -48,16 +48,12 @@ class singleFastLED {
 		              uint16_t const numberOfCycles);
                   
                   void setColor1(uint8_t green, uint8_t red, uint8_t blue);
-                  void setColor2(uint8_t green, uint8_t red, uint8_t blue);
-                  
+                  void setColor2(uint8_t green, uint8_t red, uint8_t blue);        
                   void on(uint8_t green, uint8_t red, uint8_t blue);
                   void on_all(uint8_t green, uint8_t red, uint8_t blue);
                   void off_all();
                   void off();
-
-                  void blink_stop();
-                  void breath_stop();
-                  
+                  void stop();
                   void update();
                   void blink_loop();
                   void breath_loop();
