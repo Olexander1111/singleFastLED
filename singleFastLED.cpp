@@ -246,12 +246,9 @@ void singleFastLED::SingleControl::off(){
     FastLED.show();
 }
 
-void singleFastLED::SingleControl::blink_stop(){
+void singleFastLED::SingleControl::stop(){
     _stopBlink  = true;
-    _blinkIsRun = false;   
-}
-
-void singleFastLED::SingleControl::breath_stop(){
+    _blinkIsRun = false;
     _stopBreath   = true;
     _breathIsRun  = false;   
 }
