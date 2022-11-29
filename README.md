@@ -45,6 +45,9 @@ Now you can use the singleFastLED functions for a specific LED
 void loop(){
 
 Led[0]->update();
+....
+Led[5]->update();
+
 Fled->show();
 }  
   
