@@ -30,100 +30,6 @@ void singleFastLED::SingleControl::setColor2(uint8_t green, uint8_t red, uint8_t
       _setBlue2   = blue;
 }
 
-void singleFastLED::SingleControl::blink(
-        uint16_t const timeColor1,
-        uint16_t const timeColor2,
-        byte     const numOfRepeat,
-        uint16_t const pauseTime,
-        uint16_t const numberOfCycles,
-        void (*finishCallback)(),
-        void (*runStartPauseCallbackBlink)(),
-        void (*endPauseCallback)())
-{
-    _timeBlinkActionColor1 = timeColor1 ? max((int)TIME_DIFF_MS, (int)timeColor1) : 0;
-    _timeBlinkActionColor2 =  timeColor2 ? max((int)TIME_DIFF_MS, (int)timeColor2) : 0;
-    _blinkRepeatNum = numOfRepeat;
-    _pauseBlink = pauseTime ? max((int)TIME_DIFF_MS, (int)pauseTime) : 0;
-    _blinkCycleNum = numberOfCycles;
-    _runCallbackBlink = finishCallback;
-    _startBlinkPauseCallback = runStartPauseCallbackBlink;
-    _endBlinkPauseCallback = endPauseCallback;
-    _lastBlinkTime = 0;
-    _oneTimeRunBlinkFlag = false;
-    _stopBlink = 0;
-    _blinkIsRun = 1;
-    _blinkSwitch = INIT_BLINK;
-}
-
-void singleFastLED::SingleControl::blink(
-  uint16_t const timeColor1,
-  uint16_t const timeColor2,
-  byte     const numOfRepeat,
-  uint16_t const pauseTime,
-  uint16_t const numberOfCycles,
-  void (*finishCallback)(),
-  void (*runStartPauseCallbackBlink)())
-{     
-    _timeBlinkActionColor1 = timeColor1 ? max((int)TIME_DIFF_MS, (int)timeColor1) : 0;
-    _timeBlinkActionColor2 =  timeColor2 ? max((int)TIME_DIFF_MS, (int)timeColor2) : 0;
-    _blinkRepeatNum = numOfRepeat;
-    _pauseBlink = pauseTime ? max((int)TIME_DIFF_MS, (int)pauseTime) : 0;
-    _blinkCycleNum = numberOfCycles;
-    _runCallbackBlink = finishCallback;
-    _startBlinkPauseCallback = runStartPauseCallbackBlink;
-    _endBlinkPauseCallback = NULL;
-    _lastBlinkTime = 0;
-    _oneTimeRunBlinkFlag = false;
-    _stopBlink = 0;
-    _blinkIsRun = 1;
-    _blinkSwitch = INIT_BLINK;
-}
-
-
-void singleFastLED::SingleControl::blink(
-  uint16_t const timeColor1,
-  uint16_t const timeColor2,
-  byte     const numOfRepeat,
-  uint16_t const pauseTime,
-  uint16_t const numberOfCycles,
-  void (*finishCallback)())
-{
-    _timeBlinkActionColor1 = timeColor1 ? max((int)TIME_DIFF_MS, (int)timeColor1) : 0;
-    _timeBlinkActionColor2 =  timeColor2 ? max((int)TIME_DIFF_MS, (int)timeColor2) : 0;
-    _blinkRepeatNum = numOfRepeat;
-    _pauseBlink = pauseTime ? max((int)TIME_DIFF_MS, (int)pauseTime) : 0;
-    _blinkCycleNum = numberOfCycles;
-    _runCallbackBlink = finishCallback;
-    _startBlinkPauseCallback = NULL;
-    _endBlinkPauseCallback = NULL;
-    _lastBlinkTime = 0;
-    _oneTimeRunBlinkFlag = false;
-    _stopBlink = 0;
-    _blinkIsRun = 1;
-    _blinkSwitch = INIT_BLINK;
-}
-void singleFastLED::SingleControl::blink(
-  uint16_t const timeColor1,
-  uint16_t const timeColor2,
-  byte     const numOfRepeat,
-  uint16_t const pauseTime,
-  uint16_t const numberOfCycles)
-{
-    _timeBlinkActionColor1 = timeColor1 ? max((int)TIME_DIFF_MS, (int)timeColor1) : 0;
-    _timeBlinkActionColor2 =  timeColor2 ? max((int)TIME_DIFF_MS, (int)timeColor2) : 0;
-    _blinkRepeatNum = numOfRepeat;
-    _pauseBlink = pauseTime ? max((int)TIME_DIFF_MS, (int)pauseTime) : 0;
-    _blinkCycleNum = numberOfCycles;
-    _runCallbackBlink = NULL;
-    _startBlinkPauseCallback = NULL;
-    _endBlinkPauseCallback = NULL;
-    _lastBlinkTime = 0;
-    _oneTimeRunBlinkFlag = false;
-    _stopBlink = 0;
-    _blinkIsRun = 1;
-    _blinkSwitch = INIT_BLINK;
-}
-
 void singleFastLED::SingleControl::blink_loop(){
 
   if(_blinkIsRun && !_stopBlink){
@@ -357,7 +263,7 @@ void singleFastLED::SingleControl::on_all(uint8_t green, uint8_t red, uint8_t bl
         for(uint8_t i=0; i < _numLeds ;i++){
           _leds[i].setRGB(_red,_green,_blue);
         }
-      //FastLED.show();  
+       FastLED.show();  
 }
 
 void singleFastLED::SingleControl::on(uint8_t green, uint8_t red, uint8_t blue){
@@ -365,7 +271,102 @@ void singleFastLED::SingleControl::on(uint8_t green, uint8_t red, uint8_t blue){
         _green  = green;
         _blue   = blue;  
         _leds[_ledId].setRGB(_green,_red,_blue);
-      //FastLED.show();
+       FastLED.show();
+}
+
+
+void singleFastLED::SingleControl::blink(
+        uint16_t const timeColor1,
+        uint16_t const timeColor2,
+        byte     const numOfRepeat,
+        uint16_t const pauseTime,
+        uint16_t const numberOfCycles,
+        void (*finishCallback)(),
+        void (*runStartPauseCallbackBlink)(),
+        void (*endPauseCallback)())
+{
+    _timeBlinkActionColor1 = timeColor1 ? max((int)TIME_DIFF_MS, (int)timeColor1) : 0;
+    _timeBlinkActionColor2 =  timeColor2 ? max((int)TIME_DIFF_MS, (int)timeColor2) : 0;
+    _blinkRepeatNum = numOfRepeat;
+    _pauseBlink = pauseTime ? max((int)TIME_DIFF_MS, (int)pauseTime) : 0;
+    _blinkCycleNum = numberOfCycles;
+    _runCallbackBlink = finishCallback;
+    _startBlinkPauseCallback = runStartPauseCallbackBlink;
+    _endBlinkPauseCallback = endPauseCallback;
+    _lastBlinkTime = 0;
+    _oneTimeRunBlinkFlag = false;
+    _stopBlink = 0;
+    _blinkIsRun = 1;
+    _blinkSwitch = INIT_BLINK;
+}
+
+void singleFastLED::SingleControl::blink(
+  uint16_t const timeColor1,
+  uint16_t const timeColor2,
+  byte     const numOfRepeat,
+  uint16_t const pauseTime,
+  uint16_t const numberOfCycles,
+  void (*finishCallback)(),
+  void (*runStartPauseCallbackBlink)())
+{     
+    _timeBlinkActionColor1 = timeColor1 ? max((int)TIME_DIFF_MS, (int)timeColor1) : 0;
+    _timeBlinkActionColor2 =  timeColor2 ? max((int)TIME_DIFF_MS, (int)timeColor2) : 0;
+    _blinkRepeatNum = numOfRepeat;
+    _pauseBlink = pauseTime ? max((int)TIME_DIFF_MS, (int)pauseTime) : 0;
+    _blinkCycleNum = numberOfCycles;
+    _runCallbackBlink = finishCallback;
+    _startBlinkPauseCallback = runStartPauseCallbackBlink;
+    _endBlinkPauseCallback = NULL;
+    _lastBlinkTime = 0;
+    _oneTimeRunBlinkFlag = false;
+    _stopBlink = 0;
+    _blinkIsRun = 1;
+    _blinkSwitch = INIT_BLINK;
+}
+
+
+void singleFastLED::SingleControl::blink(
+  uint16_t const timeColor1,
+  uint16_t const timeColor2,
+  byte     const numOfRepeat,
+  uint16_t const pauseTime,
+  uint16_t const numberOfCycles,
+  void (*finishCallback)())
+{
+    _timeBlinkActionColor1 = timeColor1 ? max((int)TIME_DIFF_MS, (int)timeColor1) : 0;
+    _timeBlinkActionColor2 =  timeColor2 ? max((int)TIME_DIFF_MS, (int)timeColor2) : 0;
+    _blinkRepeatNum = numOfRepeat;
+    _pauseBlink = pauseTime ? max((int)TIME_DIFF_MS, (int)pauseTime) : 0;
+    _blinkCycleNum = numberOfCycles;
+    _runCallbackBlink = finishCallback;
+    _startBlinkPauseCallback = NULL;
+    _endBlinkPauseCallback = NULL;
+    _lastBlinkTime = 0;
+    _oneTimeRunBlinkFlag = false;
+    _stopBlink = 0;
+    _blinkIsRun = 1;
+    _blinkSwitch = INIT_BLINK;
+}
+void singleFastLED::SingleControl::blink(
+  uint16_t const timeColor1,
+  uint16_t const timeColor2,
+  byte     const numOfRepeat,
+  uint16_t const pauseTime,
+  uint16_t const numberOfCycles)
+{
+    _timeBlinkActionColor1 = timeColor1 ? max((int)TIME_DIFF_MS, (int)timeColor1) : 0;
+    _timeBlinkActionColor2 =  timeColor2 ? max((int)TIME_DIFF_MS, (int)timeColor2) : 0;
+    _blinkRepeatNum = numOfRepeat;
+    _pauseBlink = pauseTime ? max((int)TIME_DIFF_MS, (int)pauseTime) : 0;
+    _blinkCycleNum = numberOfCycles;
+    _runCallbackBlink = NULL;
+    _startBlinkPauseCallback = NULL;
+    _endBlinkPauseCallback = NULL;
+    _lastBlinkTime = 0;
+    _oneTimeRunBlinkFlag = false;
+    _stopBlink = 0;
+    _blinkIsRun = 1;
+    _blinkSwitch = INIT_BLINK;
 }
 
 void singleFastLED::SingleControl::breath(
