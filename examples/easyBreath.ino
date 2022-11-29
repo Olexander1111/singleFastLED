@@ -7,9 +7,9 @@ singleFastLED::scLED    *Led[10];
 
 
 void runWhenDone(){
-  Led[0]->setColor1(10,3,30);
+  Led[0]->setColor1(0,0,30);
   Led[0]->setColor2(0,30,0);
-  Led[0]->breath(1900,30,3);
+  Led[0]->breath(400,30,30);
 }
 
 void runWhenPauseStart(){
@@ -40,7 +40,7 @@ void setup() {
   
   Led[1]->setColor1(10,0,20);
   Led[1]->setColor2(0,50,30);
-  Led[1]->breath(1400,2300,10,runWhenDone,runWhenPauseStart,runWhenPauseEnd);
+  Led[1]->breath(1400,2300,6,runWhenDone,runWhenPauseStart,runWhenPauseEnd);
   
 }
 
