@@ -38,22 +38,21 @@ void setup() {
   .....
   Led[5] = new singleFastLED::scLED(5);
 ```
-
 Now you can use the singleFastLED functions for a specific LED
 ```C++
   Led[0]->setColor1(0,30,30);
   Led[0]->setColor2(30,30,0);
   Led[0]->blink(100,150,3,2000,10);
-    
-  
 }  
-
+  
+```
+Don't forget to add an update function in the loop for a specific LED
+```C+
 void loop(){
 
 Led[0]->update();
 ....
 Led[5]->update();
-
 Fled->show();
 }  
   
