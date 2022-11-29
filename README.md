@@ -14,5 +14,37 @@ Then create the FastLED objects according to your needs, examples:
 
 ```C++
 singleFastLED           *Fled;
-singleFastLED::scLED    *Led[10];
+singleFastLED::scLED    *Led[10];     //10 - the number of LEDs you want to control
+
+In the setup function, initialize the FastLED Lib and virtual LEDs
+
+void setup() {
+
+  Fled = new singleFastLED();
+  Fled->begin();
+
+  Led[0] = new singleFastLED::scLED(0);
+  Led[1] = new singleFastLED::scLED(1);
+.....
+.....
+.....
+  Led[5] = new singleFastLED::scLED(5);
+
+
+  Led[0]->setColor1(10,20,30);
+  Led[0]->setColor2(10,20,30);
+  Led[0]->blink(1900,90,1800);
+
+}  
+
+
+
+void loop(){
+
+Led[0]->update();
+Fled->show();
+}  
+  
 ```
+
+You can use also the following functions to get more complex control:
