@@ -23,6 +23,8 @@ void setup() {
   Fled->begin();
   
   Led[0] = new singleFastLED::scLED(0);
+  Led[1] = new singleFastLED::scLED(1);
+
   
   /* Breath effect
   Led[0]->setColor1(0,50,30);
@@ -37,11 +39,18 @@ void setup() {
   //Led[0]->blink(30,70,3,1800,10,runWhenDone, runWhenPauseStart, runWhenPauseEnd); //more complex option
   Led[0]->blink(100,100,5,1000,100);
   
+  
+  Led[1]->setColor1(20,0,30);
+  Led[1]->setColor2(10,20,0);
+  Led[1]->blink(300,150,2,100,100);
+
+  
 }
 
 void loop(){
   
   Led[0]->update();
+  Led[1]->update();
   Fled->show();
   
 }
