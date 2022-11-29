@@ -35,7 +35,7 @@ Now you can use the singleFastLED functions for a specific LED
 ```C++
   Led[0]->setColor1(0,30,30);
   Led[0]->setColor2(30,30,0);
-  Led[3]->blink(100,150,3,2000,10);
+  Led[0]->blink(100,150,3,2000,10);
     
   
 }  
