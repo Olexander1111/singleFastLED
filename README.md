@@ -5,11 +5,19 @@ Simplified implementation of independent FastLED Leds control for microcontrolle
 
 ## How to use
 
+Change the settings for the FastLED lib in singleFastLED.h file.
+
+```C++
+#define NUMBER_OF_LEDS 8
+#define FastLED_PIN 16
+```
 Include the header file on your code:
 
 ```C++
 #include "singleFastLED.h"
 ```
+
+
 Then create the FastLED objects according to your needs, examples:
 
 ```C++
