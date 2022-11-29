@@ -22,7 +22,7 @@ Then create the FastLED objects according to your needs, examples:
 
 ```C++
 singleFastLED           *Fled;
-singleFastLED::scLED    *Led[10];     //10 - the number of LEDs you want to control
+singleFastLED::scLED    *Led[8];     //8 - the number of LEDs you want to control
 ```
 In the setup function, initialize the FastLED Lib and virtual LEDs
 
