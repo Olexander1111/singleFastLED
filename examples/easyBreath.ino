@@ -7,17 +7,21 @@ singleFastLED::scLED    *Led[10];
 
 
 void runWhenDone(){
-  Led[0]->setColor1(10,30,30);
-  Led[0]->setColor2(0,30,10);
+  Led[0]->setColor1(10,3,30);
+  Led[0]->setColor2(0,30,0);
   Led[0]->breath(1900,30,3);
 }
 
 void runWhenPauseStart(){
-//your code
+  Led[0]->setColor1(10,3,30);
+  Led[0]->setColor2(0,30,0);
+  Led[0]->breath(900,0,1);
 }
 
 void runWhenPauseEnd(){
-//your code
+  Led[0]->setColor1(10,3,30);
+  Led[0]->setColor2(0,30,0);
+  Led[0]->breath(400,0,2);
 }
 
 void setup() {
@@ -34,9 +38,9 @@ void setup() {
   Led[0]->setColor2(0,30,10);
   Led[0]->breath(1900,30,3);
   
-  Led[1]->setColor1(10,50,0);
-  Led[1]->setColor2(20,50,30);
-  Led[1]->breath(2900,2000,10,runWhenDone);
+  Led[1]->setColor1(10,0,20);
+  Led[1]->setColor2(0,50,30);
+  Led[1]->breath(1400,2300,10,runWhenDone,runWhenPauseStart,runWhenPauseEnd);
   
 }
 
