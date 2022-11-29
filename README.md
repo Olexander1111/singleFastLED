@@ -29,9 +29,10 @@ void setup() {
   .....
   .....
   Led[5] = new singleFastLED::scLED(5);
+```
 
 Now you can use the singleFastLED functions for a specific LED
-
+```C++
   Led[0]->setColor1(0,30,30);
   Led[0]->setColor2(30,30,0);
   Led[3]->blink(100,150,3,2000,10);
@@ -51,8 +52,9 @@ Fled->show();
 ```
 ## Finally use the following functions:
 
-on(uint8_t green, uint8_t red, uint8_t blue);
-  Example:  Led[0]->on(10,2,45);
+```C++
+## on(uint8_t green, uint8_t red, uint8_t blue);
+Example:  Led[0]->on(10,2,45);
 
 off();
   Example:  Led[0]->off();
@@ -69,3 +71,4 @@ Example:
         Led[0]->setColor2(0,50,0);      //Red
         Led[0]->blink(100,150,3,2000,10); // Blue fires for 100ms, Red fires for 150ms, repeats 3 times, waits 2000ms and repeats all 10 times
 
+```
