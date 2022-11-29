@@ -1,7 +1,7 @@
 # singleFastLED
 
 
-Simplified implementation of independent FastLED Leds control for microcontrollers (Arduino,ESP8266/ESP32).
+Simplified implementation of independent FastLED Leds(WS2812) control for microcontrollers (Arduino,ESP8266/ESP32).
 
 ## How to use
 
