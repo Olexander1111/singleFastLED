@@ -8,7 +8,7 @@
 
 #define TIME_DIFF_MS 15
 #define NUMBER_OF_LEDS 8
-#define FastLED_PIN D0
+#define FastLED_PIN 16
 
 
 class singleFastLED {
