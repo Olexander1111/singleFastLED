@@ -53,7 +53,7 @@ Fled->show();
 ## Finally use the following functions:
 
 ```C++
-## on(uint8_t green, uint8_t red, uint8_t blue);
+on(uint8_t green, uint8_t red, uint8_t blue);
 Example:  Led[0]->on(10,2,45);
 
 off();
@@ -65,7 +65,7 @@ setColor1(uint8_t green, uint8_t red, uint8_t blue);
 setColor2(uint8_t green, uint8_t red, uint8_t blue);
   Example:  Led[0]->setColor2(5,5,5);     //White
   
-blink(timeColor1, timeColor2, numOfRepeat, pauseTime, numberOfCycles);  
+blink(uint16_t timeColor1, uint16_t timeColor2, byte numOfRepeat, uint16_t pauseTime, uint16_t numberOfCycles);  
 Example:  
         Led[0]->setColor1(0,0,50);      //Blue
         Led[0]->setColor2(0,50,0);      //Red
