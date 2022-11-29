@@ -5,16 +5,16 @@ singleFastLED           *Fled;
 singleFastLED::scLED    *Led[10];
 
 
-void runWhenFinish(){
-//run your code
+void runWhenDone(){
+//your code
 }
 
-void whenPauseStart(){
-//run your code
+void runWhenPauseStart(){
+//your code
 }
 
-void whenPauseEnd(){
-//run your code
+void runWhenPauseEnd(){
+//your code
 }
 
 void setup() {
@@ -32,10 +32,10 @@ void setup() {
   
   /*Blink effect*/
   
-  Led[3]->setColor1(20,0,0);
-  Led[3]->setColor2(0,0,0);
-  //Led[3]->blink(30,70,3,1800,10,runWhenFinish, whenPauseStart, whenPauseEnd); //more complex option
-  Led[3]->blink(100,100,5,1000,100);
+  Led[0]->setColor1(20,0,0);
+  Led[0]->setColor2(0,0,0);
+  //Led[0]->blink(30,70,3,1800,10,runWhenDone, runWhenPauseStart, runWhenPauseEnd); //more complex option
+  Led[0]->blink(100,100,5,1000,100);
   
 }
 
