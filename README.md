@@ -10,3 +10,9 @@ Include the header file on your code:
 ```C++
 #include "singleFastLED.h"
 ```
+Then create the FastLED objects according to your needs, examples:
+
+```C++
+singleFastLED           *Fled;
+singleFastLED::scLED    *Led[10];
+```
